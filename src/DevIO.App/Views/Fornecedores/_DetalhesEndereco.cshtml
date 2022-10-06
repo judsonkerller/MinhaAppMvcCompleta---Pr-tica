@@ -1,0 +1,67 @@
+﻿@model DevIO.App.ViewModels.EnderecoViewModel
+
+<div style="padding-top: 20px">
+    <div>
+        <hr />
+        <h4>Endereço</h4>
+    </div>
+    @if (Model != null)
+    {
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Longradouro)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Numero)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Complemento)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Bairro)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cep)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cidade)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Estado)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.Longradouro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Numero)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Complemento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Bairro)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Cep)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Cidade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Estado)
+                    </td>
+                    <td>
+                        <a class="btn btn-info" asp-action="Edit" asp-controller="Endereco"><span title="Editar" class="fa fa-pencil-alt"></span></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+</div>
