@@ -20,4 +20,10 @@
     <ProjectReference Include="..\DevIo.Business\DevIo.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Repository\ProdutoRepository.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
 </Project>

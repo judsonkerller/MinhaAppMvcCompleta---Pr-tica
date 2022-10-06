@@ -40,11 +40,7 @@ namespace DevIO.App
             );
                 
 
-            services.AddDbContext<MeuDbContext>(options => 
-            { 
-                options.UseSqlServer(connection);
-            }
-            );
+            services.AddDbContext<MeuDbContext>(options => options.UseSqlServer(connection));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();

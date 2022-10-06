@@ -87,9 +87,8 @@ namespace DevIO.App.Controllers
         {
             if (id != produtoViewModel.Id) return NotFound();
 
-            var produtoAtualizar = await ObterProduto(id);
-            produtoViewModel.Fornecedor = produtoAtualizar.Fornecedor;
-            produtoViewModel.Imagem = produtoAtualizar.Imagem;
+            var produtoAtualizar = await _produtoRepository.ObterPorId(id);
+
             if (!ModelState.IsValid) return View(produtoViewModel);
 
             if (produtoViewModel.ImagemUpload != null)
@@ -108,7 +107,7 @@ namespace DevIO.App.Controllers
             produtoAtualizar.Valor = produtoViewModel.Valor;
             produtoAtualizar.Ativo = produtoViewModel.Ativo;
 
-            await _produtoRepository.Atualizar(_mapper.Map<Produto>(produtoAtualizar));
+            await _produtoRepository.Atualizar(produtoAtualizar);
 
             return RedirectToAction("Index");
         }
@@ -153,7 +152,7 @@ namespace DevIO.App.Controllers
             if (arquivo.Length <= 0) return false;
 
             //var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagens", imgPrefixo + arquivo.FileName);
-            var path = Path.Combine("C:/Users/Janio Alexandre/source/TrainingProjects/Estudos-CSharp/MinhaAppMvcCompleta/src/DevIO.App", "wwwroot/imagens", imgPrefixo + arquivo.FileName);
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagens", imgPrefixo + arquivo.FileName);
 
             if (System.IO.File.Exists(path))
             {
