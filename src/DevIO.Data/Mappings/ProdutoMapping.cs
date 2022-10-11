@@ -12,7 +12,7 @@ namespace DevIO.Data.Mappings
 
             builder.Property(p => p.Nome)
                 .IsRequired()
-                .HasColumnType("varchar(200)");
+                .HasColumnType("varchar(100)");
 
             builder.Property(p => p.Descricao)
                 .IsRequired()
