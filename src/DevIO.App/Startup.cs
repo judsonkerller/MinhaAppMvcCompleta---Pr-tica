@@ -58,9 +58,11 @@ namespace DevIO.App
                     o.ModelBindingMessageProvider.SetValueIsInvalidAccessor((x) => "O valor preenchido é inválido para este campo.");
                     o.ModelBindingMessageProvider.SetValueMustBeANumberAccessor(x => "O campo deve ser numérico.");
                     o.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x => "Este campo precisa ser preenchido.");
+
+                    o.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
                 }
 
-            ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            ).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddScoped<MeuDbContext>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
